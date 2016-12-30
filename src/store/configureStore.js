@@ -1,3 +1,4 @@
+/* global __CLIENT__, __PRODUCTION__ */
 import { createStore, compose, applyMiddleware } from 'redux'
 import createSagaMiddleware from 'redux-saga'
 import rootSaga from '../sagas'
@@ -7,18 +8,21 @@ import rootSaga from '../sagas'
  * also applying enhanced middlewares onto stores.
  *
  * @param {function} rootReducer
- * @param {object} finalizedState
+ * @param {object} preloadedState
  */
-export default function configureStore (rootReducer, finalizedState) {
-
+export default function configureStore (rootReducer, preloadedState) {
   const sagaMiddleware = createSagaMiddleware()
+  const composeEnhancers = (
+    !global.__PRODUCTION__ &&
+    typeof window === 'object' &&
+    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+  ) || compose;
 
   const store = createStore(
     rootReducer,
-    finalizedState,
-    compose(
-      applyMiddleware(sagaMiddleware),
-      global.__CLIENT__ && window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__() : f => f
+    preloadedState,
+    composeEnhancers(
+      applyMiddleware(sagaMiddleware)
     )
   )
 
