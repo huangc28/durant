@@ -1,17 +1,18 @@
-/* @TODO extract common style out. */
+@value gainsboro, paynesGrey, darkGrey from '../../components/styles/colors.css';
+@value size12, size10, light from '../../components/styles/font.css';
 
 .title {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 1.875rem;
-  border-bottom: solid 1px #d8d8d8;
+  border-bottom: solid 1px gainsboro;
   margin-bottom: 3.5rem;
 }
 
 .content {
   margin: 0 auto;
-  width: 56.25rem;
+  max-width: 56.25rem;
 }
 
 .term {
@@ -19,7 +20,20 @@
 }
 
 .termDetail {
-  font-size: 0.75rem;
-  margin-top: 0.75rem;
+  composes: size12;
+  color: paynesGrey;
+  margin-top: 1rem;
+}
+
+.footer {
+  composes: light;
+  composes: size10;
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.5rem;
+	height: 0.875rem;
+	color: darkGrey;
 }
 

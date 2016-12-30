@@ -12,7 +12,9 @@
     "start": "NODE_ENV=production node ./bin/server.js",
     "clean": "rimraf build",
     "test": "ava '**/*.spec.js'",
-    "test:watch": "ava --watch '**/*.spec.js'"
+    "test:watch": "ava --watch '**/*.spec.js'",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "ava": {
     "require": [
@@ -58,7 +60,8 @@
     "webpack": "2.1.0-beta.20",
     "webpack-dev-middleware": "1.6.1",
     "webpack-hot-middleware": "2.12.2",
-    "webpack-validator": "2.2.3"
+    "webpack-validator": "2.2.3",
+    "@kadira/storybook": "^2.5.2"
   },
   "dependencies": {
     "babel-polyfill": "^6.9.1",

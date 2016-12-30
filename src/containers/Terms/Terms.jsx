@@ -2,8 +2,11 @@ import React, { Component } from 'react'
 import termsContent from './TermsContent'
 import styles from './Terms.css'
 
-const renderTerm = (title, detail) => (
-  <div className={styles.term}>
+const renderTerm = (key, title, detail) => (
+  <div
+    key={key}
+    className={styles.term}
+  >
     <div className={styles.termTitle}>
       <h2>{ title }</h2>
       <div
@@ -22,8 +25,13 @@ const Terms = () => (
     <div className={styles.content}>
       <h1>會員使用條款</h1>
       {
-        termsContent.info.map(term => renderTerm(term.title, term.detail))
+        termsContent.info.map((term, key) => renderTerm(key, term.title, term.detail))
       }
+    </div>
+
+    {/* Footer */}
+    <div className={styles.footer}>
+      2016 版權所有為奧仕股份有限公司, OUTSM Inc
     </div>
   </div>
 )
