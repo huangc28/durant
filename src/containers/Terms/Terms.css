@@ -1,0 +1,25 @@
+/* @TODO extract common style out. */
+
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 1.875rem;
+  border-bottom: solid 1px #d8d8d8;
+  margin-bottom: 3.5rem;
+}
+
+.content {
+  margin: 0 auto;
+  width: 56.25rem;
+}
+
+.term {
+  margin-top: 1.875rem;
+}
+
+.termDetail {
+  font-size: 0.75rem;
+  margin-top: 0.75rem;
+}
+

@@ -7,7 +7,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = () => {
   const isProd = process.env.NODE_ENV === 'production'
   const isDev = process.env.NODE_ENV === 'development'
-  console.log('BRYAN: IS PROD', isProd)
+
   const ifDev = plugin => isDev && plugin || undefined
   const ifProd = plugin => isProd && plugin || undefined
 
