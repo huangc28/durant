@@ -7,9 +7,8 @@ import rootReducer from './reducers'
 
 import routes from './routes'
 
-const initialState = window.__INITIAL_STATE__
-
-const store = configureStore(rootReducer, initialState)
+const preloadedState = window.__INITIAL_STATE__
+const store = configureStore(rootReducer, preloadedState)
 
 // check if its hmr.
 if (module.hot) {

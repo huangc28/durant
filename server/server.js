@@ -52,10 +52,9 @@ function handleRender (req, res) {
       res.redirect(302, `${redirectLocation.pathname}${redirectLocation.search}`)
     } else if (renderProps) {
 
-      const initialState = {}
+      const preloadedState = {}
 
-      const store = configureStore(rootReducer, initialState)
-
+      const store = configureStore(rootReducer, preloadedState)
       // route is found, prepare html string...
       const html = renderToString(
         <Provider store={store}>
