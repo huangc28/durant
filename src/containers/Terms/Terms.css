@@ -1,7 +1,7 @@
 @value gainsboro, paynesGrey, darkGrey from '../../components/styles/colors.css';
 @value size12, size10, light from '../../components/styles/font.css';
 
-.title {
+.logo {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -13,10 +13,12 @@
 .content {
   margin: 0 auto;
   max-width: 56.25rem;
+  line-height: 1.4;
 }
 
 .term {
   margin-top: 1.875rem;
+  padding: 0.625rem;
 }
 
 .termDetail {

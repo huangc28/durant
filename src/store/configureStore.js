@@ -1,4 +1,3 @@
-/* global __CLIENT__, __PRODUCTION__ */
 import { createStore, compose, applyMiddleware } from 'redux'
 import createSagaMiddleware from 'redux-saga'
 import rootSaga from '../sagas'
@@ -16,7 +15,7 @@ export default function configureStore (rootReducer, preloadedState) {
     !global.__PRODUCTION__ &&
     typeof window === 'object' &&
     window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
-  ) || compose;
+  ) || compose
 
   const store = createStore(
     rootReducer,

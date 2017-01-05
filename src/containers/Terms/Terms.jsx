@@ -1,6 +1,9 @@
-import React, { Component } from 'react'
+import React from 'react'
+// import LogoSVG from '../../../images/logo.svg'
 import termsContent from './TermsContent'
 import styles from './Terms.css'
+
+const LogoSVG = require('../../../images/logo.svg')
 
 const renderTerm = (key, title, detail) => (
   <div
@@ -11,7 +14,7 @@ const renderTerm = (key, title, detail) => (
       <h2>{ title }</h2>
       <div
         className={styles.termDetail}
-        dangerouslySetInnerHTML={{__html: detail}}
+        dangerouslySetInnerHTML={{ __html: detail }}
       />
     </div>
   </div>
@@ -19,8 +22,8 @@ const renderTerm = (key, title, detail) => (
 
 const Terms = () => (
   <div>
-    <div className={styles.title}>
-      OUTSM
+    <div className={styles.logo}>
+      {/* <img src={LogoSVG} /> */}
     </div>
     <div className={styles.content}>
       <h1>會員使用條款</h1>

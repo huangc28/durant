@@ -1,17 +1,16 @@
 const webpack = require('webpack')
 const { resolve } = require('path')
-const validator = require('webpack-validator')
-const packages = require('./package.json')
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = () => {
   const isProd = process.env.NODE_ENV === 'production'
   const isDev = process.env.NODE_ENV === 'development'
 
-  const ifDev = plugin => isDev && plugin || undefined
-  const ifProd = plugin => isProd && plugin || undefined
+  const ifDev = plugin => (isDev && plugin) || undefined
+  const ifProd = plugin => (isProd && plugin) || undefined
 
   const removeEmpty = plugins => (plugins.filter(i => !!i))
+
   return {
     devtool: isProd ? 'source-map' : 'eval-source-map',
     entry: removeEmpty([
@@ -56,8 +55,8 @@ module.exports = () => {
           ],
         },
         {
-          test: /\.svg/,
-          loader: 'svg-url-loader?limit=25000',
+          test: /\.svg$/,
+          loader: 'file?hash=sha512&digest=hex&name=[hash].[ext]',
         },
         {
           test: /\.woff(\?\.*)?$/,
