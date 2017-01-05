@@ -1,9 +1,6 @@
 import React from 'react'
-// import LogoSVG from '../../../images/logo.svg'
 import termsContent from './TermsContent'
 import styles from './Terms.css'
-
-const LogoSVG = require('../../../images/logo.svg')
 
 const renderTerm = (key, title, detail) => (
   <div
