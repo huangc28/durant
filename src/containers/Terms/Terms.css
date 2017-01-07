@@ -5,9 +5,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 1.875rem;
+  height: 3.5rem;
   border-bottom: solid 1px gainsboro;
   margin-bottom: 3.5rem;
+}
+
+.logo img {
+  width: 6.25rem;
 }
 
 .content {
