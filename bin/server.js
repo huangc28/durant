@@ -15,7 +15,8 @@ require('css-modules-require-hook')({
 })
 
 require('asset-require-hook')({
-  extensions: ['jpeg', 'jpg', 'svg'],
+  extensions: ['jpeg', 'jpg', 'png', 'svg'],
+  name: '[hash].[ext]',
 })
 
 require(path.resolve(__dirname, '../server', 'server.js'))
