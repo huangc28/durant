@@ -12,7 +12,7 @@ export function renderFullPage (html, initialState) {
   return `<!doctype html>
     <html>
       <head>
-        <title>Universal App</title>
+        <title>OUTSM</title>
         ${cssBundle}
       </head>
       <body>
