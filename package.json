@@ -9,12 +9,15 @@
     "lint": "eslint . --ext .js --ext .jsx",
     "build": "npm run clean & webpack --progress --verbose --display-error-details",
     "build:prod": "npm run clean && NODE_ENV=production npm run build -- --env.prod",
-    "start": "NODE_ENV=production node ./bin/server.js",
+    "start": "NODE_ENV=production pm2 start node bin/server.js",
     "clean": "rimraf build/*",
     "test": "ava '**/*.spec.js'",
     "test:watch": "ava --watch '**/*.spec.js'",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
+  },
+  "pre-commit": {
+    "run": ["lint"]
   },
   "ava": {
     "require": [
@@ -54,6 +57,7 @@
     "jshint-loader": "0.8.3",
     "json-loader": "0.5.4",
     "nodemon": "1.9.2",
+    "pre-commit": "^1.2.2",
     "redux-devtools": "3.3.1",
     "rimraf": "2.5.4",
     "staticify": "0.0.5",
