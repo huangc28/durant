@@ -88,13 +88,13 @@ module.exports = () => {
           loader: ExtractTextPlugin.extract({
             fallbackLoader: 'style',
             loader: 'css?module&importLoaders=1&' +
-            'localIdentName=[path]___[name]__[local]___[hash:base64:5]',
+            'localIdentName=_[hash:base64:5]',
           }),
         }),
         ifDev({
           test: /\.css$/,
           loader: 'style!css?modules&importLoaders=1&' +
-          'localIdentName=[path]___[name]__[local]___[hash:base64:5]',
+          'localIdentName=[name]__[local]__[hash:base64:5]',
         }),
       ]),
     },
@@ -121,7 +121,7 @@ module.exports = () => {
           'process.env.NODE_ENV': '"development"',
         })
       ),
-      ifProd(new ExtractTextPlugin('[name].css')),
+      ifProd(new ExtractTextPlugin('bundle.css')),
       new webpack.optimize.CommonsChunkPlugin({
         name: 'vendor',
         filename: 'vendor.js',

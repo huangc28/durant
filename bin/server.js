@@ -10,8 +10,12 @@ config.presets = config.presets.map(
 )
 
 require('babel-register')(config)
+
+const generateScopedName = process.env.NODE_ENV === 'production'
+  ? '_[hash:base64:5]'
+  : '[name]__[local]__[hash:base64:5]'
 require('css-modules-require-hook')({
-  generateScopedName: '[name]__[local]___[hash:base64:5]',
+  generateScopedName,
 })
 
 require('asset-require-hook')({
