@@ -6,6 +6,5 @@ import Terms from './containers/Terms'
 export default (
   <Route path="/" component={App} >
     <IndexRoute component={Terms} />
-    <Route path="/terms" component={Terms} />
   </Route>
 )
