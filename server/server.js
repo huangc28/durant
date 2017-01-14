@@ -15,11 +15,13 @@ import webpackHotMiddleware from 'webpack-hot-middleware'
 
 const app = express()
 const staticPath = resolve(__dirname, '..', 'static')
+const publicPath = resolve(__dirname, '..', 'build')
 const webpackConfig = require('../webpack.config.js')({ dev: true })
 const compiler = webpack(webpackConfig)
 
 // serve static files.
 app.use('/static', express.static(staticPath))
+app.use(express.static(publicPath))
 
 app.use(staticify.middleware)
 
