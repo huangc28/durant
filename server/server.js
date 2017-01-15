@@ -21,7 +21,7 @@ const compiler = webpack(webpackConfig)
 
 // serve static files.
 app.use('/static', express.static(staticPath))
-app.use(express.static(publicPath))
+app.use('/public', express.static(publicPath))
 
 app.use(staticify.middleware)
 
