@@ -1,4 +1,5 @@
 import React from 'react'
+import LogoIcon from '../../components/icons/logo'
 import LogoSVG from '../../../images/logo.svg'
 import termsContent from './TermsContent'
 import styles from './Terms.css'
@@ -21,7 +22,7 @@ const renderTerm = (key, title, detail) => (
 const Terms = () => (
   <div>
     <div className={styles.logo}>
-      <img src={LogoSVG} />
+      <LogoIcon />
     </div>
     <div className={styles.content}>
       <h1>會員使用條款</h1>

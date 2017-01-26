@@ -17,7 +17,9 @@
     "build-storybook": "build-storybook"
   },
   "pre-commit": {
-    "run": ["lint"]
+    "run": [
+      "lint"
+    ]
   },
   "ava": {
     "require": [
@@ -57,6 +59,7 @@
     "jshint-loader": "0.8.3",
     "json-loader": "0.5.4",
     "nodemon": "1.9.2",
+    "postcss-loader": "^1.2.2",
     "pre-commit": "^1.2.2",
     "redux-devtools": "3.3.1",
     "rimraf": "2.5.4",

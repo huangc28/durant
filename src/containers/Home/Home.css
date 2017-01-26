@@ -1,0 +1,38 @@
+@value size18 from '../../components/styles/font.css';
+@value java from '../../components/styles/colors.css';
+
+.header {
+  display: flex;
+  height: 4rem;
+  width: 100vw;
+  justify-content: space-around;
+  z-index: 100;
+  position: fixed;
+  box-shadow: 0px 0px 5px 0px rgba(20%, 20%, 40%,0.5);
+}
+
+.option {
+  composes: size18;
+  position: relative;
+  color: grey;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.optionHighLight {
+  transition: opacity 0.3s ease;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.option:hover .optionHighLight {
+  border: java solid 2px;
+}
+
+.logo img {
+  width: 7.5rem;
+  height: 3.875rem;
+}

@@ -88,13 +88,13 @@ module.exports = () => {
           loader: ExtractTextPlugin.extract({
             fallbackLoader: 'style',
             loader: 'css?module&importLoaders=1&' +
-            'localIdentName=_[hash:base64:5]',
+            'localIdentName=_[hash:base64:5]!postcss-loader',
           }),
         }),
         ifDev({
           test: /\.css$/,
           loader: 'style!css?modules&importLoaders=1&' +
-          'localIdentName=[name]__[local]__[hash:base64:5]',
+          'localIdentName=[name]__[local]__[hash:base64:5]!postcss-loader',
         }),
       ]),
     },
