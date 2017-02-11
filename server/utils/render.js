@@ -19,7 +19,7 @@ export function renderFullPage (html, initialState) {
         ${cssBundle}
       </head>
       <body>
-        <div id='app'>${html}</div>
+        <div id='app'><div>${html}</div></div>
         <script>
           window.__INITIAL_STATE__ = ${JSON.stringify(initialState)}
         </script>

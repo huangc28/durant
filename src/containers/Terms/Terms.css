@@ -1,19 +1,5 @@
-@value gainsboro, paynesGrey, darkGrey from '../../components/styles/colors.css';
-@value size12, size10, light from '../../components/styles/font.css';
-
-.logo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 3.5rem;
-  border-bottom: solid 1px gainsboro;
-  margin-bottom: 3.5rem;
-}
-
-.logo img {
-  width: 10rem;
-  height: 3.5rem;
-}
+@value gainsboro, paynesGrey from '../../components/styles/colors.css';
+@value size12 from '../../components/styles/font.css';
 
 .content {
   margin: 0 auto;
@@ -31,16 +17,3 @@
   color: paynesGrey;
   margin-top: 1rem;
 }
-
-.footer {
-  composes: light;
-  composes: size10;
-  margin-bottom: 1.5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 1.5rem;
-	height: 0.875rem;
-	color: darkGrey;
-}
-

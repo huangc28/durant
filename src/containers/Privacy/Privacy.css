@@ -1,0 +1,22 @@
+@value size12 from '../../components/styles/font.css';
+
+.root {
+  margin: 0 auto;
+  max-width: 56.25rem;
+  line-height: 1.4;
+  padding: 0.625rem;
+
+}
+
+.term {
+  composes: size12;
+  line-height: 1.6;
+}
+
+.termsContainer {
+  margin-top: 0.75rem;
+}
+
+.privacySection {
+  margin-top: 1.25rem;
+}

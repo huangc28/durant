@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react'
+import React from 'react'
 import LogoIcon from '../../components/icons/logo'
 
 import styles from './Home.css'
@@ -54,21 +54,17 @@ const HeaderOption = (option, key) => {
   )
 }
 
-class Home extends Component {
-  render () {
-    return (
-      <div>
-        {/* header */}
-        <div className={styles.header}>
-          {
-            HEADER_OPTIONS.map((option, index) => (
-              HeaderOption(option, index)
-            ))
-          }
-        </div>
-      </div>
-    )
-  }
-}
+const Home = () => (
+  <div>
+    {/* header */}
+    <div className={styles.header}>
+      {
+        HEADER_OPTIONS.map((option, index) => (
+          HeaderOption(option, index)
+        ))
+      }
+    </div>
+  </div>
+)
 
 export default Home
