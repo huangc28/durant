@@ -11,7 +11,7 @@ const HEADER_OPTIONS = [
     title: 'Products',
   },
   {
-    title: 'Featuress',
+    title: 'Features',
   },
   {
     title: (
