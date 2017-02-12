@@ -5,13 +5,15 @@ import React from 'react'
 import { Provider } from 'react-redux'
 import { renderToString } from 'react-dom/server'
 import { match, RouterContext } from 'react-router'
-import configureStore from '../src/store/configureStore'
-import routes from '../src/routes'
-import { renderFullPage, staticify } from './utils/render'
-import rootReducer from '../src/reducers'
 import webpack from 'webpack'
 import webpackDevMiddleware from 'webpack-dev-middleware'
 import webpackHotMiddleware from 'webpack-hot-middleware'
+
+import outsmApis from './apis/outsm'
+import { renderFullPage, staticify } from './utils/render'
+import configureStore from '../src/store/configureStore'
+import routes from '../src/routes'
+import rootReducer from '../src/reducers'
 
 const app = express()
 const staticPath = resolve(__dirname, '..', 'static')
@@ -43,7 +45,7 @@ if (process.env.NODE_ENV === 'development') {
   }))
 }
 
-function handleRender (req, res) {
+function handleRender (req, res, next) {
   match({
     routes,
     location: req.url,
@@ -69,11 +71,17 @@ function handleRender (req, res) {
       // render full page along with html and redux store
       res.send(renderFullPage(html, finalizedState))
     }
-    // route is not found, send 404 not found page.
+    // pass on to the next route
+    next()
   })
 }
 
 app.use(handleRender)
+
+/**
+ * Api route pattern: api/*
+ */
+app.use('/api', outsmApis)
 
 app.listen(3005, () => {
   console.log('listening in port 3005')

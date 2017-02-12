@@ -1,0 +1,10 @@
+@value greyChateau, bermuda10 from '../styles/colors.css';
+
+.disabled,
+.disabled:hover,
+.disabled:active,
+.disabled:focus {
+  color: greyChateau;
+  background-color: bermuda10 !important;
+  box-shadow: none;
+}
