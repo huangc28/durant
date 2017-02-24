@@ -1,5 +1,6 @@
 import 'babel-polyfill'
 import express from 'express'
+import bodyParser from 'body-parser'
 import { resolve } from 'path'
 import React from 'react'
 import { Provider } from 'react-redux'
@@ -26,6 +27,7 @@ app.use('/static', express.static(staticPath))
 app.use('/public', express.static(publicPath))
 
 app.use(staticify.middleware)
+app.use(bodyParser.json())
 
 if (process.env.NODE_ENV === 'development') {
   // webpack dev middleware

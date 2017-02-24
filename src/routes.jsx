@@ -8,6 +8,8 @@ import Home from './containers/Home'
 import Terms from './containers/Terms'
 import Privacy from './containers/Privacy'
 import ResetPassword from './containers/ResetPassword'
+import ValidateToken from './containers/ValidateToken'
+import ForgotPassword from './containers/ForgotPassword'
 
 export default (
   <Route path="/" component={App} >
@@ -21,6 +23,8 @@ export default (
     </Route>
 
     {/* credentials reset */}
-    <Route path="reset-password" component={ResetPassword} />
+    <Route path="forgot-password" component={ForgotPassword} />
+    <Route path="forgot-password/validate-token" component={ValidateToken} />
+    <Route path="forgot-password/reset-password" component={ResetPassword} />
   </Route>
 )

@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 
 import styles from './ResetPassword.css'
-import LogoIcon from '../../components/icons/logo'
+import ForgotPasswordLayout from '../../layout/ForgotPassword'
+
 
 class ResetPassword extends Component {
   constructor () {
@@ -32,14 +33,7 @@ class ResetPassword extends Component {
     } = this.state
 
     return (
-      <div className={styles.root}>
-
-        {/* logo */}
-        <div className={styles.logo}>
-          <LogoIcon />
-        </div>
-
-        {/* content */}
+      <ForgotPasswordLayout>
         <div className={styles.content}>
 
           {/* title */}
@@ -80,7 +74,7 @@ class ResetPassword extends Component {
             </button>
           </div>
         </div>
-      </div>
+      </ForgotPasswordLayout>
     )
   }
 }
