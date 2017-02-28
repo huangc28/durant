@@ -28,6 +28,7 @@ app.use('/public', express.static(publicPath))
 
 app.use(staticify.middleware)
 app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }))
 
 if (process.env.NODE_ENV === 'development') {
   // webpack dev middleware

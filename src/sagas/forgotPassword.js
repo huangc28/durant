@@ -1,32 +1,44 @@
-import { call } from 'redux-saga/effects'
+import { call, put } from 'redux-saga/effects'
 import { takeLatest } from 'redux-saga'
 
-import { validateResetToken } from '../apis/forgotPassword'
-import * as actionTypes from '../actions/forgotPassword'
+import {
+  requestForgotPassword,
+  validateResetToken,
+} from '../apis/forgotPassword'
+import * as actions from '../actions/forgotPassword'
+
+const SUCCESS_STATUS = '200'
 
 function * watchRequestForgotPasswordFlow (action) {
-  console.log('BRYAN: watchRequestForgotPasswordFlow', action)
+  const { email } = action
+
+  try {
+    const response = yield call(requestForgotPassword, email)
+
+    console.log('BRYAN: response', response)
+  } catch (error) {
+    console.log('BRYAN: response', error)
+  }
 }
 
 function * watchValidateResetPasswordToken (action) {
-  const { token } = action
+  const { payload: { token } } = action
 
   try {
     const response = yield call(validateResetToken, token)
 
-    if (!response.userid) {
-      // yield put()
+    if (response.status !== SUCCESS_STATUS) {
+      throw new Error(response.message)
     }
-
-    console.log('BRYAN: FORGOT PASSWORD RESPONSE', response)
+    yield put(actions.validateResetTokenSuccess(response))
   } catch (error) {
-    console.log('BRYAN: FORGOT PASSWORD ERROR', error)
+    yield put(actions.validateResetTokenFailed(error.message))
   }
 }
 
 export default function * forgotPasswordFlow () {
   yield [
-    takeLatest(actionTypes.REQUEST_RESET_PASSWORD, watchRequestForgotPasswordFlow),
-    takeLatest(actionTypes.VALIDATE_RESET_TOKEN, watchValidateResetPasswordToken),
+    takeLatest(actions.REQUEST_RESET_PASSWORD, watchRequestForgotPasswordFlow),
+    takeLatest(actions.VALIDATE_RESET_TOKEN, watchValidateResetPasswordToken),
   ]
 }
