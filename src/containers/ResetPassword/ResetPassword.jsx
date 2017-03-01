@@ -1,16 +1,19 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
+import { connect } from 'react-redux'
 
 import styles from './ResetPassword.css'
+import { resetPassword } from '../../actions/forgotPassword'
 import ForgotPasswordLayout from '../../layout/ForgotPassword'
 
 
 class ResetPassword extends Component {
-  constructor () {
-    super()
+  constructor (props) {
+    super(props)
 
     this.state = {
       newPassword: '',
       retypePassword: '',
+      showError: false, // show password not match error.
     }
   }
 
@@ -18,11 +21,36 @@ class ResetPassword extends Component {
     this.setState({
       newPassword: evt.target.value,
     })
+
+    this.setState({
+      showError: false,
+    })
   }
 
   onRetypeNewPassword = evt => {
     this.setState({
       retypePassword: evt.target.value,
+    })
+
+    this.setState({
+      showError: false,
+    })
+  }
+
+  onSubmit = () => {
+    const { retypePassword, newPassword } = this.state
+    // const { resetPassword, userId, token } = this.props
+    // @TODO test purpose only
+    const userId = 'testuser1234'
+    const token = 'testtoken1234'
+    if (retypePassword === newPassword) {
+      this.props.resetPassword(userId, token, newPassword)
+
+      return
+    }
+
+    this.setState({
+      showError: true,
     })
   }
 
@@ -30,6 +58,7 @@ class ResetPassword extends Component {
     const {
       newPassword,
       retypePassword,
+      showError,
     } = this.state
 
     return (
@@ -65,6 +94,17 @@ class ResetPassword extends Component {
             />
           </div>
 
+          <div className={styles.errorContainer}>
+            <p className={
+                showError
+                ? styles.error
+                : styles.hide
+              }
+            >
+              password does't match, please try again.
+            </p>
+          </div>
+
           <div className={styles.submitContainer}>
             <button
               className={styles.smallButton}
@@ -79,4 +119,21 @@ class ResetPassword extends Component {
   }
 }
 
-export default ResetPassword
+ResetPassword.propTypes = {
+  resetPassword: PropTypes.func,
+  token: PropTypes.string,
+  userId: PropTypes.string,
+}
+
+const mapStateToProps = state => {
+  const { userId, token } = state.forgotPassword
+
+  return {
+    userId,
+    token,
+  }
+}
+
+export default connect(mapStateToProps, {
+  resetPassword,
+})(ResetPassword)

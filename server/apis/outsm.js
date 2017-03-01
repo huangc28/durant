@@ -45,7 +45,11 @@ router.post('/forgot-password/validate-token', (req, res) => {
 /**
  * URL: https://backend.outsm.com/outsm_backend/guest/forgotPass?userMail=missingcallme%40hotmail.com
  *
- *
+ * Success response:
+ *  {
+ *    "status": "200",
+ *    "message": "..."
+ *  }
  */
 router.post('/forgot-password/request-reset-password', (req, res) => {
   const { email } = req.body
@@ -55,6 +59,43 @@ router.post('/forgot-password/request-reset-password', (req, res) => {
   }
 
   fetch(`${OUTSM_BASE_URL}/outsm_backend/guest/forgotPass?userMail=${email}`)
+    .then(res => res.json())
+    .then(
+      response => {
+        res.json(response)
+      }
+    )
+    .catch(error => (
+      res.json({ error })
+    ))
+})
+
+router.post('/forgot-password/reset', (req, res) => {
+  const { userId, token, newPassword } = req.body
+
+  if (!userId) {
+    res.json({ error: { message: 'userId is not specified' } })
+  }
+
+  if (!token) {
+    res.json({ error: { message: 'token is not specified' } })
+  }
+
+  if (!newPassword) {
+    res.json({ error: { message: 'newPassword is not specified' } })
+  }
+
+  fetch(`${OUTSM_BASE_URL}/outsm_backend/guest/chpwd`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      userId,
+      token,
+      newPass: newPassword,
+    }),
+  })
     .then(res => res.json())
     .then(
       response => {
