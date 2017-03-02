@@ -11,8 +11,7 @@
     "build:prod": "npm run clean && NODE_ENV=production npm run build -- --env.prod",
     "start": "NODE_ENV=production pm2 start node bin/server.js",
     "clean": "rimraf build/*",
-    "test": "ava '**/*.spec.js'",
-    "test:watch": "ava --watch '**/*.spec.js'",
+    "test": "jest",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
@@ -21,20 +20,14 @@
       "lint"
     ]
   },
-  "ava": {
-    "require": [
-      "babel-register"
-    ],
-    "babel": "inherit"
-  },
   "license": "ISC",
   "devDependencies": {
     "@kadira/storybook": "^2.5.2",
     "asset-require-hook": "1.0.2",
-    "ava": "0.16.0",
     "babel-cli": "6.9.0",
     "babel-core": "6.9.1",
     "babel-eslint": "6.0.4",
+    "babel-jest": "^19.0.0",
     "babel-loader": "6.2.4",
     "babel-plugin-transform-react-remove-prop-types": "^0.2.11",
     "babel-plugin-transform-runtime": "^6.15.0",
@@ -55,6 +48,7 @@
     "extract-text-webpack-plugin": "^2.0.0-beta.3",
     "file-loader": "0.9.0",
     "image-webpack-loader": "2.0.0",
+    "jest": "^19.0.2",
     "jshint": "2.9.3",
     "jshint-loader": "0.8.3",
     "json-loader": "0.5.4",
@@ -62,6 +56,7 @@
     "postcss-loader": "^1.2.2",
     "pre-commit": "^1.2.2",
     "redux-devtools": "3.3.1",
+    "regenerator-runtime": "^0.10.3",
     "rimraf": "2.5.4",
     "staticify": "0.0.5",
     "style-loader": "0.13.1",
