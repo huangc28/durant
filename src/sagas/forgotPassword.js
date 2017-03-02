@@ -11,7 +11,7 @@ import * as actions from '../actions/forgotPassword'
 
 const SUCCESS_STATUS = '200'
 
-function * watchRequestForgotPasswordFlow (action) {
+export function * watchRequestForgotPasswordFlow (action) {
   const { payload: { email } } = action
 
   try {
@@ -27,7 +27,7 @@ function * watchRequestForgotPasswordFlow (action) {
   }
 }
 
-function * watchValidateResetPasswordToken (action) {
+export function * watchValidateResetPasswordToken (action) {
   const { payload: { token } } = action
 
   try {
@@ -46,7 +46,7 @@ function * watchValidateResetPasswordToken (action) {
   }
 }
 
-function * watchResetPasswordFlow (action) {
+export function * watchResetPasswordFlow (action) {
   const { payload: { userId, token, newPassword } } = action
   try {
     const response = yield call(resetPassword, userId, token, newPassword)
