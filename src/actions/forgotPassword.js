@@ -58,10 +58,11 @@ export const validateResetToken = token => ({
   },
 })
 
-export const validateResetTokenSuccess = response => ({
+export const validateResetTokenSuccess = (userId, token) => ({
   type: VALIDATE_RESET_TOKEN_SUCCESS,
   payload: {
-    response,
+    userId,
+    token,
   },
 })
 

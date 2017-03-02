@@ -6,10 +6,11 @@ import { validateResetToken } from '../../actions/forgotPassword'
 class ValidateToken extends Component {
 
   componentDidMount = () => {
-    // @TODO hardcoded reset token for testing purpose.
-    const resetToken = 'cd4e33daeea21fdc0bd5807b10e63b967e8a858f7a85b6548cc417240d3fa583bcc4742960ac05914d5cb8e8f4016f24d4e93cab5699a05e9f68eab1c11b10f2' // eslint-disable-line
+    const { token } = this.props.params
 
-    this.props.validateResetToken(resetToken)
+    console.log('BRYAN: validate token', token)
+
+    this.props.validateResetToken(token)
   }
 
   render () {
@@ -23,6 +24,7 @@ class ValidateToken extends Component {
 }
 
 ValidateToken.propTypes = {
+  params: PropTypes.object,
   validateResetToken: PropTypes.func,
 }
 

@@ -4,8 +4,6 @@ import { browserHistory } from 'react-router'
 
 import {
   requestResetPassword,
-  requestResetPasswordSuccess,
-  requestResetPasswordFailed,
   validateResetToken,
   resetPassword,
 } from '../apis/forgotPassword'
@@ -23,9 +21,9 @@ function * watchRequestForgotPasswordFlow (action) {
       throw new Error(response.message)
     }
 
-    yield put(requestResetPasswordSuccess(response.token))
+    yield put(actions.requestResetPasswordSuccess(response.message))
   } catch (error) {
-    yield put(requestResetPasswordFailed(error.message))
+    yield put(actions.requestResetPasswordFailed(error.message))
   }
 }
 
@@ -38,9 +36,13 @@ function * watchValidateResetPasswordToken (action) {
     if (response.status !== SUCCESS_STATUS) {
       throw new Error(response.message)
     }
-    yield put(actions.validateResetTokenSuccess(response))
+
+    yield put(actions.validateResetTokenSuccess(response.userId, response.token))
+
+    browserHistory.push('/forgot-password/reset-password')
   } catch (error) {
     yield put(actions.validateResetTokenFailed(error.message))
+    browserHistory.push('forgot-password/validate-token/failed')
   }
 }
 
@@ -54,8 +56,12 @@ function * watchResetPasswordFlow (action) {
     }
 
     yield put(actions.requestResetPasswordSuccess(response))
+
+    browserHistory.push('/forgot-password/reset-password-success')
   } catch (error) {
     yield put(actions.resetPasswordFailed(error.message))
+
+    browserHistory.push('/forgot-password/reset-password-failed')
   }
 }
 

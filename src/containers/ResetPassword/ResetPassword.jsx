@@ -5,7 +5,6 @@ import styles from './ResetPassword.css'
 import { resetPassword } from '../../actions/forgotPassword'
 import ForgotPasswordLayout from '../../layout/ForgotPassword'
 
-
 class ResetPassword extends Component {
   constructor (props) {
     super(props)

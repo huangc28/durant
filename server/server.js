@@ -81,9 +81,6 @@ function handleRender (req, res, next) {
 
 app.use(handleRender)
 
-/**
- * Api route pattern: api/*
- */
 app.use('/api', outsmApis)
 
 app.listen(3005, () => {

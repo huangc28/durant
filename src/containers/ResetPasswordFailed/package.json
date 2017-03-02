@@ -1,0 +1,6 @@
+{
+  "name": "ResetPasswordFailed",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./ResetPasswordFailed.jsx"
+}
