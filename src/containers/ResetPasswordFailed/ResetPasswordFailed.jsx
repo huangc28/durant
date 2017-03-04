@@ -13,9 +13,9 @@ const ResetPasswordFailed = () => (
     </div>
     {/* remark */}
     <div className={styles.remark}>
-      <h2> 密碼已更新 </h2>
+      <h2> 密碼更新錯誤 </h2>
 
-      <p> 請重新登入你的帳號。 </p>
+      <p> 請重新操作一次。 </p>
     </div>
     {/* button */}
     <div className={styles.buttonContainer}>
