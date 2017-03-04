@@ -1,0 +1,9 @@
+@value button from '../../styles/button.css';
+@value java from '../../styles/colors.css';
+
+.hollowButton {
+  composes: button;
+  font-size: 18px;
+	font-weight: 500;
+	color: java;
+}

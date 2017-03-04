@@ -1,7 +1,10 @@
 /* eslint-disable */
 import { call, put } from 'redux-saga/effects'
 
-import { requestResetPassword } from '../apis/forgotPassword'
+import {
+  requestResetPassword,
+  validateResetToken,
+} from '../apis/forgotPassword'
 import * as actions from '../actions/forgotPassword'
 import * as sagas from './forgotPassword'
 
@@ -13,4 +16,39 @@ test('Test request forgot password flow success', () => {
 
   const response = { status: '200', message: 'testtoken123' }
   expect(gen.next(response).value).toMatchObject(put(actions.requestResetPasswordSuccess(response.message)))
+})
+
+test('Validating reset password flow success', () => {
+  const data = { payload: { token: 'token123' } }
+  const gen = sagas.watchValidateResetPasswordToken(data)
+  expect(gen.next().value).toMatchObject(
+    call(validateResetToken, data.payload.token)
+  )
+
+  const response = {
+    status: '200',
+    userId: 'testuser123',
+    token: data.payload.token,
+  }
+
+  expect(gen.next(response).value).toMatchObject(
+    put(actions.validateResetTokenSuccess(response.userId, response.token))
+  )
+})
+
+test('Validating reset password flow failed', () => {
+  const data = { payload: { token: 'token123' } }
+  const gen = sagas.watchValidateResetPasswordToken(data)
+  expect(gen.next().value).toMatchObject(
+    call(validateResetToken, data.payload.token)
+  )
+
+  const response = {
+    status: '500',
+    message: 'Internal server error',
+  }
+
+  expect(gen.next(response).value).toMatchObject(
+    put(actions.validateResetTokenFailed(response.message))
+  )
 })

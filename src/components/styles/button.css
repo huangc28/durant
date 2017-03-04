@@ -1,4 +1,17 @@
 @value greyChateau, bermuda10 from '../styles/colors.css';
+@value java from '../styles/colors.css';
+
+.button {
+  height: 3rem;
+  width: 100%;
+  padding: 0;
+  cursor: pointer;
+  outline: 0;
+  text-align: center;
+  background-color: white;
+  border: solid 1.5px black;
+  border-radius: 2.5rem;
+}
 
 .disabled,
 .disabled:hover,

@@ -11,6 +11,11 @@ const ForgotPassword = props => (
     </div>
 
     {props.children}
+
+    {/* Footer */}
+    <div className={styles.footer}>
+      2016 版權所有為奧仕股份有限公司, OUTSM Inc
+    </div>
   </div>
 )
 

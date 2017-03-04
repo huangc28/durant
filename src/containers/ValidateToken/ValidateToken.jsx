@@ -8,8 +8,6 @@ class ValidateToken extends Component {
   componentDidMount = () => {
     const { token } = this.props.params
 
-    console.log('BRYAN: validate token', token)
-
     this.props.validateResetToken(token)
   }
 
