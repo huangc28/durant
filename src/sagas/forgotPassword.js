@@ -39,10 +39,10 @@ export function * watchValidateResetPasswordToken (action) {
 
     yield put(actions.validateResetTokenSuccess(response.userId, response.token))
 
-    browserHistory.push('/forgot-password/reset-password')
+    browserHistory.push('forgot-password/reset-password')
   } catch (error) {
     yield put(actions.validateResetTokenFailed(error.message))
-    browserHistory.push('forgot-password/validate-token/failed')
+    browserHistory.push('forgot-password/token-expired')
   }
 }
 
@@ -57,11 +57,11 @@ export function * watchResetPasswordFlow (action) {
 
     yield put(actions.requestResetPasswordSuccess(response))
 
-    browserHistory.push('/forgot-password/reset-password-success')
+    browserHistory.push('forgot-password/reset-password-success')
   } catch (error) {
     yield put(actions.resetPasswordFailed(error.message))
 
-    browserHistory.push('/forgot-password/reset-password-failed')
+    browserHistory.push('forgot-password/reset-password-failed')
   }
 }
 

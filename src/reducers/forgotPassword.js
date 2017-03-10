@@ -1,6 +1,7 @@
 import * as actionTypes from '../actions/forgotPassword'
 
 const INIT_STATE = {
+  email: '',
   token: null,
   userId: null,
   errorMessage: null,
@@ -8,6 +9,11 @@ const INIT_STATE = {
 
 const forgotPassword = (state = INIT_STATE, action) => {
   switch (action.type) {
+    case actionTypes.REQUEST_RESET_PASSWORD:
+      return {
+        ...state,
+        email: action.payload.email,
+      }
     case actionTypes.REQUEST_FORGOT_PASSWORD_SUCCESS:
       return {
         ...state,

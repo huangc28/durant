@@ -32,7 +32,7 @@ export default (
     <Route path="forgot-password" component={ForgotPassword} />
 
     <Route path="forgot-password/validate-token/:token" component={ValidateToken} />
-    <Route path="forgot-password/validate-token/failed" component={ValidateTokenFailed} />
+    <Route path="forgot-password/token-expired" component={ValidateTokenFailed} />
 
     <Route path="forgot-password/reset-password" component={ResetPassword} />
     <Route path="forgot-password/reset-password-success" component={ResetPasswordSuccess} />

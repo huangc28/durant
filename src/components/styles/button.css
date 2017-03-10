@@ -1,5 +1,5 @@
-@value greyChateau, bermuda10 from '../styles/colors.css';
-@value java from '../styles/colors.css';
+@value java, silverSand from '../styles/colors.css';
+@value  from '../styles/colors.css';
 
 .button {
   height: 3rem;
@@ -9,7 +9,7 @@
   outline: 0;
   text-align: center;
   background-color: white;
-  border: solid 1.5px black;
+  border: none;
   border-radius: 2.5rem;
 }
 
@@ -17,7 +17,8 @@
 .disabled:hover,
 .disabled:active,
 .disabled:focus {
-  color: greyChateau;
-  background-color: bermuda10 !important;
+  font-size: 1.125rem;
+  color: white;
+  background-color: silverSand !important;
   box-shadow: none;
 }

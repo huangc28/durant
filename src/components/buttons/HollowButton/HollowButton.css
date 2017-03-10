@@ -3,6 +3,7 @@
 
 .hollowButton {
   composes: button;
+  border: solid 1.5px black;
   font-size: 18px;
 	font-weight: 500;
 	color: java;
