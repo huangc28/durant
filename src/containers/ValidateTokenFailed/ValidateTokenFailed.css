@@ -6,9 +6,11 @@
   line-height: 2;
   padding: 0 2.875rem;
   width: 31.25rem;
+  font-size: 0.875rem;
 }
 
 .submit {
+  width: 7.5rem;
   margin-top: 2.25rem;
 }
 
