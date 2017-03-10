@@ -29,13 +29,13 @@ export default (
     </Route>
 
     {/* credentials reset */}
-    <Route path="forgot-password" component={ForgotPassword} />
+    <Route path="/forgot-password" component={ForgotPassword} />
 
-    <Route path="forgot-password/validate-token/:token" component={ValidateToken} />
-    <Route path="forgot-password/token-expired" component={ValidateTokenFailed} />
+    <Route path="/forgot-password/validate-token/:token" component={ValidateToken} />
+    <Route path="/forgot-password/token-expired" component={ValidateTokenFailed} />
 
-    <Route path="forgot-password/reset-password" component={ResetPassword} />
-    <Route path="forgot-password/reset-password-success" component={ResetPasswordSuccess} />
-    <Route path="forgot-password/reset-password-failed" component={ResetPasswordFailed} />
+    <Route path="/forgot-password/reset-password" component={ResetPassword} />
+    <Route path="/forgot-password/reset-password-success" component={ResetPasswordSuccess} />
+    <Route path="/forgot-password/reset-password-failed" component={ResetPasswordFailed} />
   </Route>
 )

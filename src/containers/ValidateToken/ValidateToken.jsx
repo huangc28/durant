@@ -13,7 +13,7 @@ class ValidateToken extends Component {
 
   render () {
     return (
-      <div>
+      <div style={{ display: 'none' }}>
         {/* start writing some react... */}
         validating token...
       </div>
