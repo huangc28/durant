@@ -1,5 +1,6 @@
 import React from 'react'
 
+import ResetPasswordSuccessIcon from '../../../images/Forget_Password_04_Alert_correct.svg'
 import styles from './ResetPasswordSuccess.css'
 import HollowButton from '../../components/buttons/HollowButton'
 import ForgotPasswordLayout from '../../layout/ForgotPassword'
@@ -7,8 +8,8 @@ import ForgotPasswordLayout from '../../layout/ForgotPassword'
 const ResetPasswordSuccess = () => (
   <ForgotPasswordLayout>
     {/* icon */}
-    <div className={styles.icon}>
-      <img src="http://placehold.it/50" />
+    <div className={styles.iconContainer}>
+      <img className={styles.icon} src={ResetPasswordSuccessIcon} />
     </div>
     {/* remark */}
     <div className={styles.remark}>

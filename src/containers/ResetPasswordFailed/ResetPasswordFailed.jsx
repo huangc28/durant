@@ -4,12 +4,13 @@ import styles from './ResetPasswordFailed.css'
 import { monza } from '../../components/styles/colors.css'
 import HollowButton from '../../components/buttons/HollowButton'
 import ForgotPasswordLayout from '../../layout/ForgotPassword'
+import ResetPasswordFailedIcon from '../../../images/Forget_Password_04_Alert_error.svg'
 
 const ResetPasswordFailed = () => (
   <ForgotPasswordLayout>
     {/* icon */}
-    <div className={styles.icon}>
-      <img src="http://placehold.it/50" />
+    <div className={styles.iconContainer}>
+      <img className={styles.icon} src={ResetPasswordFailedIcon} />
     </div>
     {/* remark */}
     <div className={styles.remark}>
