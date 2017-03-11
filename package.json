@@ -10,6 +10,7 @@
     "build": "npm run clean & webpack --progress --verbose --display-error-details",
     "build:prod": "npm run clean && NODE_ENV=production npm run build -- --env.prod",
     "start": "NODE_ENV=production pm2 start node bin/server.js",
+    "start:local": "NODE_ENV=production node bin/server.js",
     "clean": "rimraf build/*",
     "test": "jest",
     "storybook": "start-storybook -p 6006",
