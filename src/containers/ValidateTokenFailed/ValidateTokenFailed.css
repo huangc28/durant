@@ -1,4 +1,4 @@
-@value size14 from '../../components/styles/font.css';
+@value size14, bold from '../../components/styles/font.css';
 
 .content {
   composes: size14;
@@ -14,4 +14,6 @@
   margin-top: 2.25rem;
 }
 
-.title {}
+.title {
+  composes: bold;
+}
