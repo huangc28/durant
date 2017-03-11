@@ -5,9 +5,15 @@ const config = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', '.babelr
 /**
  * Use "es2015" on the server side.
  */
-config.presets = config.presets.map(
-  preset => (preset === 'es2015-webpack') ? 'es2015' : preset // eslint-disable-line no-confusing-arrow
-)
+config.presets = config.presets.map(preset => {
+  if (Array.isArray(preset) && preset[0] === 'es2015') {
+    preset.splice(1, 1)
+
+    return preset
+  }
+
+  return preset
+})
 
 require('babel-register')(config)
 
