@@ -50,13 +50,13 @@ module.exports = () => {
         {
           test: /\.(jpe?g|png|gif)$/i,
           loaders: [
-            'file?hash=sha512&digest=hex&name=[hash].[ext]',
+            'file?name=[hash].[ext]',
             'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false',
           ],
         },
         {
           test: /\.svg$/,
-          loader: 'file?hash=sha512&digest=hex&name=[hash].[ext]',
+          loader: 'file?name=[hash].[ext]',
         },
         {
           test: /\.woff(\?\.*)?$/,

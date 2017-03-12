@@ -12,30 +12,30 @@ import Privacy from './containers/Privacy'
 import ValidateToken from './containers/ValidateToken'
 import ValidateTokenFailed from './containers/ValidateTokenFailed'
 
-import ForgotPassword from './containers/ForgotPassword'
 import ResetPassword from './containers/ResetPassword'
 import ResetPasswordSuccess from './containers/ResetPasswordSuccess'
 import ResetPasswordFailed from './containers/ResetPasswordFailed'
+
+import ForgotPasswordLayout from './layout/ForgotPassword'
 
 export default (
   <Route path="/" component={App} >
     <IndexRoute component={Home} />
     <Route path="home" component={Home} />
 
-    {/* legal terms */}
+    {/* legal */}
     <Route path="legal" component={Legal}>
       <Route path="terms" component={Terms} />
       <Route path="privacy" component={Privacy} />
     </Route>
 
-    {/* credentials reset */}
-    <Route path="/forgot-password" component={ForgotPassword} />
+    <Route path="validate-token/:token" component={ValidateToken} />
 
-    <Route path="/forgot-password/validate-token/:token" component={ValidateToken} />
-    <Route path="/forgot-password/token-expired" component={ValidateTokenFailed} />
-
-    <Route path="/forgot-password/reset-password" component={ResetPassword} />
-    <Route path="/forgot-password/reset-password-success" component={ResetPasswordSuccess} />
-    <Route path="/forgot-password/reset-password-failed" component={ResetPasswordFailed} />
+    <Route path="forgot-password" component={ForgotPasswordLayout} >
+      <Route path="token-expired" component={ValidateTokenFailed} />
+      <Route path="reset-password" component={ResetPassword} />
+      <Route path="reset-password-success" component={ResetPasswordSuccess} />
+      <Route path="reset-password-failed" component={ResetPasswordFailed} />
+    </Route>
   </Route>
 )

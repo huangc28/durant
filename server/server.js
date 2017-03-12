@@ -1,3 +1,5 @@
+/* global __CLIENT__ */
+
 import 'babel-polyfill'
 import express from 'express'
 import bodyParser from 'body-parser'
@@ -46,6 +48,10 @@ if (process.env.NODE_ENV === 'development') {
     path: '/__webpack_hmr',
     heartbeat: 10 * 1000,
   }))
+}
+
+if (!__CLIENT__) {
+  global.window = {}
 }
 
 function handleRender (req, res, next) {

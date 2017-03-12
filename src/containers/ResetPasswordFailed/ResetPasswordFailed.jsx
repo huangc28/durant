@@ -3,11 +3,10 @@ import React from 'react'
 import styles from './ResetPasswordFailed.css'
 import { monza } from '../../components/styles/colors.css'
 import HollowButton from '../../components/buttons/HollowButton'
-import ForgotPasswordLayout from '../../layout/ForgotPassword'
 import ResetPasswordFailedIcon from '../../../images/Forget_Password_04_Alert_error.svg'
 
 const ResetPasswordFailed = () => (
-  <ForgotPasswordLayout>
+  <div>
     {/* icon */}
     <div className={styles.iconContainer}>
       <img className={styles.icon} src={ResetPasswordFailedIcon} />
@@ -25,7 +24,7 @@ const ResetPasswordFailed = () => (
         title="回上一頁"
       />
     </div>
-  </ForgotPasswordLayout>
+  </div>
 )
 
 export default ResetPasswordFailed

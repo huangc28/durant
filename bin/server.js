@@ -26,7 +26,9 @@ require('css-modules-require-hook')({
 
 require('asset-require-hook')({
   extensions: ['jpeg', 'jpg', 'png', 'svg'],
-  name: '[hash].[ext]',
+  name: '/[hash].[ext]',
 })
+
+global.__CLIENT__ = false
 
 require(path.resolve(__dirname, '../server', 'server.js'))
