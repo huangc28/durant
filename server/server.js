@@ -8,9 +8,11 @@ import React from 'react'
 import { Provider } from 'react-redux'
 import { renderToString } from 'react-dom/server'
 import { match, RouterContext } from 'react-router'
+import morgan from 'morgan'
 import webpack from 'webpack'
 import webpackDevMiddleware from 'webpack-dev-middleware'
 import webpackHotMiddleware from 'webpack-hot-middleware'
+import fs from 'fs'
 
 import outsmApis from './apis/outsm'
 import { renderFullPage, staticify } from './utils/render'
@@ -23,6 +25,10 @@ const staticPath = resolve(__dirname, '..', 'static')
 const publicPath = resolve(__dirname, '..', 'build')
 const webpackConfig = require('../webpack.config.js')({ dev: true })
 const compiler = webpack(webpackConfig)
+
+// write every request to access log.
+const accessLogStream = fs.createWriteStream(resolve(__dirname, 'access.log'), { flag: 'a' })
+app.use(morgan('combined', { stream: accessLogStream }))
 
 // serve static files.
 app.use('/static', express.static(staticPath))
