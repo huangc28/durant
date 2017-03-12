@@ -2,7 +2,7 @@ import React from 'react'
 
 import ResetPasswordSuccessIcon from '../../../images/Forget_Password_04_Alert_correct.svg'
 import styles from './ResetPasswordSuccess.css'
-import HollowButton from '../../components/buttons/HollowButton'
+import NormalButton from '../../components/buttons/NormalButton'
 
 const ResetPasswordSuccess = () => (
   <div>
@@ -18,7 +18,7 @@ const ResetPasswordSuccess = () => (
     </div>
     {/* button */}
     <div className={styles.buttonContainer}>
-      <HollowButton title="開啟App" />
+      <NormalButton title="開啟App" />
     </div>
   </div>
 )

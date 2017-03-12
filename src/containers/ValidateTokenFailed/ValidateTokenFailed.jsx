@@ -25,11 +25,11 @@ class ValidateTokenFailed extends Component {
             再次發送驗證至您信箱: <span> {email} </span>
           </p>
         </div>
-        <div
-          className={styles.submit}
-          onClick={this.onResend}
-        >
-          <NormalButton title="送出" />
+        <div className={styles.submit}>
+          <NormalButton
+            title="送出"
+            onClick={this.onResend}
+          />
         </div>
       </div>
     )

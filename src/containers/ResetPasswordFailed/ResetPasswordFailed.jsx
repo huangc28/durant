@@ -1,8 +1,7 @@
 import React from 'react'
 
 import styles from './ResetPasswordFailed.css'
-import { monza } from '../../components/styles/colors.css'
-import HollowButton from '../../components/buttons/HollowButton'
+import NormalButton from '../../components/buttons/NormalButton'
 import ResetPasswordFailedIcon from '../../../images/Forget_Password_04_Alert_error.svg'
 
 const ResetPasswordFailed = () => (
@@ -19,10 +18,7 @@ const ResetPasswordFailed = () => (
     </div>
     {/* button */}
     <div className={styles.buttonContainer}>
-      <HollowButton
-        color={monza}
-        title="回上一頁"
-      />
+      <NormalButton title="回上一頁" />
     </div>
   </div>
 )
