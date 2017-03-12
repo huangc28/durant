@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 
+import NormalButton from '../../components/buttons/NormalButton'
 import styles from './ResetPassword.css'
 import { resetPassword } from '../../actions/forgotPassword'
 
@@ -62,11 +63,9 @@ class ResetPassword extends Component {
 
         {/* title */}
         <div className={styles.title}>
-          <b> Forgot you password? </b>
+          <b> 忘記密碼? </b>
           <p>
-            Please enter a new password for your
-            <span className={styles.highlight}> huangchiheng@gmail.com </span>
-            account.
+            請輸入一組新的密碼.
           </p>
         </div>
 
@@ -96,17 +95,15 @@ class ResetPassword extends Component {
               : styles.hide
             }
           >
-            password does't match, please try again.
+            密碼不符合，請重新輸入.
           </p>
         </div>
 
         <div className={styles.submitContainer}>
-          <button
-            className={styles.smallButton}
+          <NormalButton
+            title="提交"
             onClick={this.onSubmit}
-          >
-            Submit
-          </button>
+          />
         </div>
       </div>
     )
