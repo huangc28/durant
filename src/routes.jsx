@@ -24,14 +24,14 @@ export default (
     <Route path="home" component={Home} />
 
     {/* legal */}
-    <Route path="/legal" component={Legal}>
+    <Route path="legal" component={Legal}>
       <Route path="terms" component={Terms} />
       <Route path="privacy" component={Privacy} />
     </Route>
 
-    <Route path="/validate-token/:token" component={ValidateToken} />
+    <Route path="validate-token/:token" component={ValidateToken} />
 
-    <Route path="/forgot-password" component={ForgotPasswordLayout} >
+    <Route path="forgot-password" component={ForgotPasswordLayout} >
       <Route path="token-expired" component={ValidateTokenFailed} />
       <Route path="reset-password" component={ResetPassword} />
       <Route path="reset-password-success" component={ResetPasswordSuccess} />
