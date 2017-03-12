@@ -22,7 +22,7 @@ const router = express.Router()
  * {"status":"30008","message":"INVALID_REQUEST"}
  *
  */
-router.post('/forgot-password/validate-token', (req, res) => {
+router.post('/forgot-password/validate-token', (req, res, next) => {
   const { token } = req.body
 
   if (!token) {
@@ -37,9 +37,7 @@ router.post('/forgot-password/validate-token', (req, res) => {
         res.json(response)
       }
     )
-    .catch(error => (
-      res.json({ error })
-    ))
+    .catch(next)
 })
 
 /**
@@ -51,7 +49,7 @@ router.post('/forgot-password/validate-token', (req, res) => {
  *    "message": "..."
  *  }
  */
-router.post('/forgot-password/request-reset-password', (req, res) => {
+router.post('/forgot-password/request-reset-password', (req, res, next) => {
   const { email } = req.body
 
   if (!email) {
@@ -65,12 +63,10 @@ router.post('/forgot-password/request-reset-password', (req, res) => {
         res.json(response)
       }
     )
-    .catch(error => (
-      res.json({ error })
-    ))
+    .catch(next)
 })
 
-router.post('/forgot-password/reset', (req, res) => {
+router.post('/forgot-password/reset', (req, res, next) => {
   const { userId, token, newPassword } = req.body
 
   if (!userId) {
@@ -102,9 +98,11 @@ router.post('/forgot-password/reset', (req, res) => {
         res.json(response)
       }
     )
-    .catch(error => (
-      res.json({ error })
-    ))
+    .catch(next)
+})
+
+router.use((error, req, res, next) => {
+  res.json({ error })
 })
 
 export default router
